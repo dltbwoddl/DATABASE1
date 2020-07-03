@@ -1,0 +1,11 @@
+mysql C R U D
+mysql database(schema)
+create database 이름;
+show databases;
+use 이름;
+drop database 이름;
+
+sql(structured query language)
+mysql 서버에 요청할 때 사용하는 언어.
+관계형 데이터 베이스 시스템이 이 언어로 동작한다.
+매우 쉽지만 중요하다.
