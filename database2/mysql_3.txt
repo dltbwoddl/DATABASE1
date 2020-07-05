@@ -1,0 +1,24 @@
+col 만들기.
+create table topic(  );
+초보자에게 가장 좋은 검색어는 cheat sheet
+엑셀은 한 col에 어떤 형태의 데이터도 넣을 수 있다.
+하지만 mysql은 일정 데이터 타입만 넣을 수 있다.
+CREATE TABLE name(
+    colname datatype 
+);
+제목, ID와 같은 것은 NULL로 받으면 안되지만 
+본문과 같이 나중에 입력해도 되는 것은 NULL을 허용해야 한다.
+MYSQL은 할 수 있고 스프레드 할 수 없다.
+mysql> CREATE TABLE topic(
+    -> id INT(11) NOT NULL AUTO_INCREMENT,
+    -> title VARCHAR(100) NOT NULL ,
+    -> description TEXT NULL,
+    -> created DATETIME NOT NULL,
+    -> author VARCHAR(30) NULL,
+    -> profile VARCHAR(100) NULL,
+    -> PRIMARY KEY(id))
+
+PRIMARY는 데이터 베이스에게 아이디 컬럼은 가장 중요한데
+각각의 값들이 중복되면 안돼라고 말하는 것.
+
+스프레드 시트보다 복잡하고 많은 데이터를 보다 손쉽게 관리할 수 있다.
