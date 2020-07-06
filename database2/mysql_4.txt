@@ -1,0 +1,54 @@
+CREATE
+mysql> INSERT INTO topic (title, description,created,author,profile) VALUES('mysql','mysql is...', NOW(),'egoing','developer');
+Query OK, 1 row affected (0.04 sec)
+
+READ(https://dev.mysql.com/doc/refman/8.0/en/select.html)
+mysql은 엄청난 규모의 데이터를 다루므로
+데이터를 불러올 때 제약을 걸어줄 필요가 있다.
+데이터 베이스를 잘하려면 SELECT를 잘해야 한다.
+mysql> SELECT id,title,created FROM topic WHERE author='egoing' ;
++----+-------+---------------------+
+| id | title | created             |
++----+-------+---------------------+
+|  1 | mysql | 2020-07-06 14:17:49 |
++----+-------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT id,title,created FROM topic WHERE author='lim' ORDER BY id DESC ;
++----+-------------+---------------------+
+| id | title       | created             |
++----+-------------+---------------------+
+|  5 | mongdb      | 2020-07-06 14:20:02 |
+|  4 | postgressql | 2020-07-06 14:19:37 |
+|  3 | sqlserver   | 2020-07-06 14:18:42 |
++----+-------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT id,title,created FROM topic WHERE author='lim' ORDER BY id DESC LIMIT 2;
++----+-------------+---------------------+
+| id | title       | created             |
++----+-------------+---------------------+
+|  5 | mongdb      | 2020-07-06 14:20:02 |
+|  4 | postgressql | 2020-07-06 14:19:37 |
++----+-------------+---------------------+
+2 rows in set (0.00 sec)
+
+UPDATE(https://dev.mysql.com/doc/refman/8.0/en/update.html)
+where문이 중요하다.
+mysql> UPDATE topic SET description='oracle is',title='oracle'WHERE id=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+DELETE(https://dev.mysql.com/doc/refman/8.0/en/delete.html)
+where문이 중요하다.
+mysql> DELETE FROM topic WHERE id=1;
+Query OK, 1 row affected (0.01 sec)
+mysql> SELECT * FROM topic;
++----+-------------+-----------------+---------------------+--------+-----------+
+| id | title       | description     | created             | author | profile   |
++----+-------------+-----------------+---------------------+--------+-----------+
+|  2 | oracle      | oracle is       | 2020-07-06 14:18:12 | going  | developer |
+|  3 | sqlserver   | sqlserver is... | 2020-07-06 14:18:42 | lim    | developer |
+|  4 | postgressql | psql is...      | 2020-07-06 14:19:37 | lim    | developer |
++----+-------------+-----------------+---------------------+--------+-----------+
+3 rows in set (0.00 sec)
