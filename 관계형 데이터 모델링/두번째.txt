@@ -1,0 +1,5 @@
+논리적 데이터 모델링
+mapping rule
+entity-> table
+attribute->column
+relation - >pk,fk
